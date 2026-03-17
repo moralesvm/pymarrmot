@@ -10,13 +10,27 @@ It includes 5 steps:
 5. Model runs
 6. Output visualization
 """
+
+import sys, os
+print("cwd:", os.getcwd())
+print("\n".join(sys.path))
+ 
+# Ensure the src/ directory is on sys.path so 'pymarrmot' can be imported
+src_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "src"))
+sys.path.insert(0, src_path)
+
+print("Added to path:", src_path)
+
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 from pymarrmot.models.models.m_29_hymod_5p_5s import m_29_hymod_5p_5s
 
 # 1. Prepare data
-df = pd.read_csv('c:/users/ssheeder/repos/pymarrmot/examples/Example_DataSet.csv')
+#df = pd.read_csv('c:/users/ssheeder/repos/pymarrmot/examples/Example_DataSet.csv')
+example_path = os.path.join(os.path.dirname(__file__), "Example_DataSet.csv")
+df = pd.read_csv(example_path)
+
 # Create a climatology data input structure
 input_climatology = {
     'dates': df['Date'].to_numpy(),      # Daily data: date in 'm/d/yyyy' format

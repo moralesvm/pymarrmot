@@ -11,6 +11,11 @@ For each model in list
     5. Model runs
 6. Output visualization
 """
+import sys, os
+
+# Ensure the src/ directory is on sys.path so 'pymarrmot' can be imported
+src_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "src"))
+sys.path.insert(0, src_path)
 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -20,7 +25,9 @@ from pymarrmot.models.models.m_01_collie1_1p_1s import m_01_collie1_1p_1s
 from pymarrmot.models.models.m_27_tank_12p_4s import m_27_tank_12p_4s
 
 # 1. Prepare data
-df = pd.read_csv('c:/users/ssheeder/repos/pymarrmot/examples/Example_DataSet.csv')
+#df = pd.read_csv('c:/users/ssheeder/repos/pymarrmot/examples/Example_DataSet.csv')
+example_path = os.path.join(os.path.dirname(__file__), "Example_DataSet.csv")
+df = pd.read_csv(example_path)
 
 # Create a climatology data input structure
 input_climatology = {

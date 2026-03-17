@@ -26,6 +26,13 @@ the value of an objective function and can be used as input to an
 optimizer.
 """
 
+import sys, os
+print("cwd:", os.getcwd())
+print("\n".join(sys.path))
+
+# Ensure the src/ directory is on sys.path so 'pymarrmot' can be imported
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'src')))
+
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
