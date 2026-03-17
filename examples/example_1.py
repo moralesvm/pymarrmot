@@ -1,3 +1,15 @@
+import sys, os
+print("cwd:", os.getcwd())
+print("\n".join(sys.path))
+
+# Ensure the src/ directory is on sys.path so 'pymarrmot' can be imported
+src_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "src"))
+sys.path.insert(0, src_path)
+
+print("Added to path:", src_path)
+
+#print(sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'src'))))
+
 import numpy as np
 import matplotlib.pyplot as plt
 from datetime import datetime
@@ -11,7 +23,9 @@ from pymarrmot.functions.objective_functions.of_mean_hilo_kge import of_mean_hil
 import pandas as pd
 
 # 1. Prepare data
-df = pd.read_csv('c:/users/ssheeder/repos/pymarrmot/examples/Example_DataSet.csv')
+#df = pd.read_csv('c:/users/ssheeder/repos/pymarrmot/examples/Example_DataSet.csv')
+example_path = os.path.join(os.path.dirname(__file__), "Example_DataSet.csv")
+df = pd.read_csv(example_path)
 
 # Create a climatology data input structure
 input_climatology = {
