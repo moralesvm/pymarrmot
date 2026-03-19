@@ -34,7 +34,8 @@ def check_and_select(sim: np.array, obs: np.array, idx: np.array=[None]) -> Tupl
     idx_exists = [i for i in range(len(obs)) if obs[i] >= 0]
 
     # 3. Update those if needed with user-input indices
-    if idx == [None] or len(idx) == 0:
+    #if idx == [None] or len(idx) == 0:
+    if idx is None or len(idx) == 0:
         idx = idx_exists
     else:
         if isinstance(idx, np.ndarray) and idx.size == len(obs):
