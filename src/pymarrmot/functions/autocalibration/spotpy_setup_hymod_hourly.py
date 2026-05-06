@@ -57,7 +57,8 @@ class spotpy_setup(object):
         #USGS 02138500 - LINVILLE RIVER NEAR NEBO, NC - usgsbasin-02138500_combined.parquet
         #USGS 03441000 - DAVIDSON RIVER NEAR BREVARD, NC - usgsbasin-03441000_combined.parquet
 
-        df = pd.read_parquet('C:/Users/ssheeder/Repos/pymarrmot/forcing/pymarrmot/combined_forcing/12_year/usgsbasin-03463300_combined.parquet')
+        #df = pd.read_parquet('C:/Users/ssheeder/Repos/pymarrmot/forcing/pymarrmot/combined_forcing/12_year/usgsbasin-03463300_combined.parquet')
+        df = pd.read_parquet('../pymarrmot/forcing/pymarrmot/combined_forcing/12_year/usgsbasin-03463300_combined.parquet')
 
         # Create a climatology data input structure
         input_climatology = {
