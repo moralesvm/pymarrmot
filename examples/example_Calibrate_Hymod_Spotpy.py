@@ -19,10 +19,23 @@ objective function. The 'spotpy_setup' class is used to set up the model for
 calibration and to run the SCE-UA optimization algorithm.
 """
 
+import sys, os
+print("cwd:", os.getcwd())
+print("\n".join(sys.path))
+
+# Ensure the src/ directory is on sys.path so 'pymarrmot' can be imported
+src_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "src"))
+sys.path.insert(0, src_path)
+
+print("Added to path:", src_path)
+
+#print(sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'src'))))
+
 import numpy as np
 import spotpy
 import spotpy.objectivefunctions as of
-from pymarrmot.functions.autocalibration.spotpy_setup import spotpy_setup as setup
+#from pymarrmot.functions.autocalibration.spotpy_setup import spotpy_setup as setup
+from pymarrmot.functions.autocalibration.spotpy_setup_hymod_hourly import spotpy_setup as setup
 import matplotlib.pyplot as plt
 
 #Set the number of model runs
