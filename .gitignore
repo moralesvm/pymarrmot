@@ -160,3 +160,7 @@ cython_debug/
 #.idea/
 
 converters/
+# Calibration run outputs
+examples/SCEUA_*.csv
+examples/SCEUA_*.png
+examples/outcmaes/

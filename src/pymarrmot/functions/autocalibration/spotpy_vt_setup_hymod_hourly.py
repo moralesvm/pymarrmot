@@ -6,13 +6,6 @@ from pymarrmot.models.models.m_29_hymod_5p_5s import m_29_hymod_5p_5s
 
 import pandas as pd
 import numpy as np
-import os
-
-# Forcing lives inside this repository, so resolve it from this file's location
-# rather than a machine-specific absolute path. This file sits four levels
-# below the repo root: src/pymarrmot/functions/autocalibration/
-_REPO_ROOT   = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', '..', '..'))
-_FORCING_DIR = os.path.join(_REPO_ROOT, 'forcing', 'pymarrmot', 'combined_forcing', '12_year')
 
 class spotpy_setup(object):
     # Following example from https://spotpy.readthedocs.io/en/latest/How_to_link_a_model_to_SPOTPY/
@@ -37,7 +30,7 @@ class spotpy_setup(object):
     
     # class variables
     m = m_29_hymod_5p_5s()
-    m.delta_t = 1/24  # time step in days (1 hour)
+    m.delta_t = 1 #1/24  # time step in days (1 hour)
     trueObs = None
 
     # Step 2: Write the def init function, which takes care of any things which need to be done only once
@@ -65,7 +58,7 @@ class spotpy_setup(object):
         #USGS 03441000 - DAVIDSON RIVER NEAR BREVARD, NC - usgsbasin-03441000_combined.parquet
 
         #df = pd.read_parquet('C:/Users/ssheeder/Repos/pymarrmot/forcing/pymarrmot/combined_forcing/12_year/usgsbasin-03463300_combined.parquet')
-        df = pd.read_parquet(os.path.join(_FORCING_DIR, 'usgsbasin-03463300_combined.parquet'))
+        df = pd.read_parquet('/users/m/m/mmorale3/netfiles/ciroh/mmorales/FFF_project/NE_modeling/data/nwm_extana_forcing/pymarrmot_combined/usgs-04288230_hourly_pymarrmot_inputs.parquet')
 
         # Create a climatology data input structure
         input_climatology = {

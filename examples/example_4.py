@@ -41,7 +41,9 @@ from pymarrmot.models.models.m_29_hymod_5p_5s import m_29_hymod_5p_5s
 import pymarrmot.functions.objective_functions as objective_functions
 
 # 1. Prepare data
-df = pd.read_csv('c:/users/ssheeder/repos/pymarrmot/examples/Example_DataSet.csv')
+#df = pd.read_csv('c:/users/ssheeder/repos/pymarrmot/examples/Example_DataSet.csv')
+example_path = os.path.join(os.path.dirname(__file__), "Example_DataSet.csv")
+df = pd.read_csv(example_path)
 
 # Create a climatology data input structure
 input_climatology = {
